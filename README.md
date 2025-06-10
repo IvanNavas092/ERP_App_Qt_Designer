@@ -16,7 +16,8 @@ Aplicación Python con interfaz Qt (PySide6) que visualiza datos financieros/com
 ---
 
 ## 🖼️ Vista Previa  
-![Interfaz](image.png)  
+![image](https://github.com/user-attachments/assets/479286b1-ce50-4172-94d2-b96df1e78b62)
+  
 
 ---
 
