@@ -46,11 +46,11 @@ class Ui_Window(object):
 
         self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_2)
 
-        self.lineEdit = QLineEdit(Window)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setStyleSheet(u"")
+        self.entry_nombre = QLineEdit(Window)
+        self.entry_nombre.setObjectName(u"entry_nombre")
+        self.entry_nombre.setStyleSheet(u"")
 
-        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.lineEdit)
+        self.formLayout.setWidget(2, QFormLayout.LabelRole, self.entry_nombre)
 
         self.label_3 = QLabel(Window)
         self.label_3.setObjectName(u"label_3")
@@ -58,11 +58,11 @@ class Ui_Window(object):
 
         self.formLayout.setWidget(3, QFormLayout.LabelRole, self.label_3)
 
-        self.lineEdit_2 = QLineEdit(Window)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setStyleSheet(u"")
+        self.entry_ubicacion = QLineEdit(Window)
+        self.entry_ubicacion.setObjectName(u"entry_ubicacion")
+        self.entry_ubicacion.setStyleSheet(u"")
 
-        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.lineEdit_2)
+        self.formLayout.setWidget(4, QFormLayout.LabelRole, self.entry_ubicacion)
 
         self.label_4 = QLabel(Window)
         self.label_4.setObjectName(u"label_4")
@@ -70,11 +70,11 @@ class Ui_Window(object):
 
         self.formLayout.setWidget(5, QFormLayout.LabelRole, self.label_4)
 
-        self.lineEdit_3 = QLineEdit(Window)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setStyleSheet(u"")
+        self.entry_stock = QLineEdit(Window)
+        self.entry_stock.setObjectName(u"entry_stock")
+        self.entry_stock.setStyleSheet(u"")
 
-        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.lineEdit_3)
+        self.formLayout.setWidget(6, QFormLayout.LabelRole, self.entry_stock)
 
         self.label_5 = QLabel(Window)
         self.label_5.setObjectName(u"label_5")
@@ -82,17 +82,17 @@ class Ui_Window(object):
 
         self.formLayout.setWidget(7, QFormLayout.LabelRole, self.label_5)
 
-        self.lineEdit_4 = QLineEdit(Window)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.entry_peso = QLineEdit(Window)
+        self.entry_peso.setObjectName(u"entry_peso")
 
-        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.lineEdit_4)
+        self.formLayout.setWidget(8, QFormLayout.LabelRole, self.entry_peso)
 
-        self.pushButton = QPushButton(Window)
-        self.pushButton.setObjectName(u"pushButton")
+        self.boton_suministro = QPushButton(Window)
+        self.boton_suministro.setObjectName(u"boton_suministro")
         font1 = QFont()
         font1.setBold(True)
-        self.pushButton.setFont(font1)
-        self.pushButton.setStyleSheet(u"background-color: #d9d9d9;\n"
+        self.boton_suministro.setFont(font1)
+        self.boton_suministro.setStyleSheet(u"background-color: #d9d9d9;\n"
 "color: black;\n"
 "border: 1px solid black;\n"
 "border-radius: 15px;\n"
@@ -100,7 +100,7 @@ class Ui_Window(object):
 "box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);\n"
 "")
 
-        self.formLayout.setWidget(9, QFormLayout.SpanningRole, self.pushButton)
+        self.formLayout.setWidget(9, QFormLayout.SpanningRole, self.boton_suministro)
 
 
         self.gridLayout_2.addLayout(self.formLayout, 0, 0, 1, 1)
@@ -118,6 +118,6 @@ class Ui_Window(object):
         self.label_3.setText(QCoreApplication.translate("Window", u"Ubicaci\u00f3n", None))
         self.label_4.setText(QCoreApplication.translate("Window", u"Stock", None))
         self.label_5.setText(QCoreApplication.translate("Window", u"Peso", None))
-        self.pushButton.setText(QCoreApplication.translate("Window", u"Crear suministro", None))
+        self.boton_suministro.setText(QCoreApplication.translate("Window", u"Crear suministro", None))
     # retranslateUi
 

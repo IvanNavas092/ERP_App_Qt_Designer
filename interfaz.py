@@ -285,6 +285,53 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.frame, 0, 0, 1, 1)
 
         self.tabWidget.addTab(self.login, "")
+        self.enter_data = QWidget()
+        self.enter_data.setObjectName(u"enter_data")
+        self.gridLayout_71 = QGridLayout(self.enter_data)
+        self.gridLayout_71.setObjectName(u"gridLayout_71")
+        self.frame_20 = QFrame(self.enter_data)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setMaximumSize(QSize(399, 300))
+        self.frame_20.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_17 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.descargar_documentacion = QPushButton(self.frame_20)
+        self.descargar_documentacion.setObjectName(u"descargar_documentacion")
+        self.descargar_documentacion.setMaximumSize(QSize(16777215, 30))
+        self.descargar_documentacion.setFont(font)
+        self.descargar_documentacion.setStyleSheet(u"background-color: #d9d9d9;\n"
+"color: black;\n"
+"border: 1px solid black;\n"
+"border-radius: 15px;\n"
+"padding:5px;\n"
+"box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);\n"
+"")
+        icon9 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.Printer))
+        self.descargar_documentacion.setIcon(icon9)
+
+        self.verticalLayout_17.addWidget(self.descargar_documentacion)
+
+        self.boton_subir_archivo = QPushButton(self.frame_20)
+        self.boton_subir_archivo.setObjectName(u"boton_subir_archivo")
+        self.boton_subir_archivo.setMaximumSize(QSize(16777215, 30))
+        self.boton_subir_archivo.setFont(font1)
+        self.boton_subir_archivo.setStyleSheet(u"background-color: #d9d9d9;\n"
+"color: black;\n"
+"border: 1px solid black;\n"
+"border-radius: 15px;\n"
+"padding:5px;\n"
+"box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);\n"
+"")
+        icon10 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.DocumentOpen))
+        self.boton_subir_archivo.setIcon(icon10)
+
+        self.verticalLayout_17.addWidget(self.boton_subir_archivo)
+
+
+        self.gridLayout_71.addWidget(self.frame_20, 0, 0, 1, 1)
+
+        self.tabWidget.addTab(self.enter_data, "")
         self.Home = QWidget()
         self.Home.setObjectName(u"Home")
         self.gridLayout_9 = QGridLayout(self.Home)
@@ -423,18 +470,18 @@ class Ui_MainWindow(object):
         self.tableWidget.setItem(0, 3, __qtablewidgetitem10)
         __qtablewidgetitem11 = QTableWidgetItem()
         self.tableWidget.setItem(0, 4, __qtablewidgetitem11)
-        icon9 = QIcon()
+        icon11 = QIcon()
         if QIcon.hasThemeIcon(QIcon.ThemeIcon.SyncSynchronizing):
-            icon9 = QIcon.fromTheme(QIcon.ThemeIcon.SyncSynchronizing)
+            icon11 = QIcon.fromTheme(QIcon.ThemeIcon.SyncSynchronizing)
         else:
-            icon9.addFile(u"icons/icons8-automation-32.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+            icon11.addFile(u"icons/icons8-automation-32.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
 
         __qtablewidgetitem12 = QTableWidgetItem()
-        __qtablewidgetitem12.setIcon(icon9);
+        __qtablewidgetitem12.setIcon(icon11);
         self.tableWidget.setItem(0, 5, __qtablewidgetitem12)
-        icon10 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MailReplied))
+        icon12 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.MailReplied))
         __qtablewidgetitem13 = QTableWidgetItem()
-        __qtablewidgetitem13.setIcon(icon10);
+        __qtablewidgetitem13.setIcon(icon12);
         self.tableWidget.setItem(0, 6, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
         self.tableWidget.setItem(1, 0, __qtablewidgetitem14)
@@ -446,12 +493,12 @@ class Ui_MainWindow(object):
         self.tableWidget.setItem(1, 3, __qtablewidgetitem17)
         __qtablewidgetitem18 = QTableWidgetItem()
         self.tableWidget.setItem(1, 4, __qtablewidgetitem18)
-        icon11 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SyncSynchronizing))
+        icon13 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.SyncSynchronizing))
         __qtablewidgetitem19 = QTableWidgetItem()
-        __qtablewidgetitem19.setIcon(icon11);
+        __qtablewidgetitem19.setIcon(icon13);
         self.tableWidget.setItem(1, 5, __qtablewidgetitem19)
         __qtablewidgetitem20 = QTableWidgetItem()
-        __qtablewidgetitem20.setIcon(icon10);
+        __qtablewidgetitem20.setIcon(icon12);
         self.tableWidget.setItem(1, 6, __qtablewidgetitem20)
         __qtablewidgetitem21 = QTableWidgetItem()
         self.tableWidget.setItem(2, 0, __qtablewidgetitem21)
@@ -464,10 +511,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem25 = QTableWidgetItem()
         self.tableWidget.setItem(2, 4, __qtablewidgetitem25)
         __qtablewidgetitem26 = QTableWidgetItem()
-        __qtablewidgetitem26.setIcon(icon11);
+        __qtablewidgetitem26.setIcon(icon13);
         self.tableWidget.setItem(2, 5, __qtablewidgetitem26)
         __qtablewidgetitem27 = QTableWidgetItem()
-        __qtablewidgetitem27.setIcon(icon10);
+        __qtablewidgetitem27.setIcon(icon12);
         self.tableWidget.setItem(2, 6, __qtablewidgetitem27)
         __qtablewidgetitem28 = QTableWidgetItem()
         self.tableWidget.setItem(3, 0, __qtablewidgetitem28)
@@ -480,10 +527,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem32 = QTableWidgetItem()
         self.tableWidget.setItem(3, 4, __qtablewidgetitem32)
         __qtablewidgetitem33 = QTableWidgetItem()
-        __qtablewidgetitem33.setIcon(icon11);
+        __qtablewidgetitem33.setIcon(icon13);
         self.tableWidget.setItem(3, 5, __qtablewidgetitem33)
         __qtablewidgetitem34 = QTableWidgetItem()
-        __qtablewidgetitem34.setIcon(icon10);
+        __qtablewidgetitem34.setIcon(icon12);
         self.tableWidget.setItem(3, 6, __qtablewidgetitem34)
         __qtablewidgetitem35 = QTableWidgetItem()
         self.tableWidget.setItem(4, 0, __qtablewidgetitem35)
@@ -496,10 +543,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem39 = QTableWidgetItem()
         self.tableWidget.setItem(4, 4, __qtablewidgetitem39)
         __qtablewidgetitem40 = QTableWidgetItem()
-        __qtablewidgetitem40.setIcon(icon11);
+        __qtablewidgetitem40.setIcon(icon13);
         self.tableWidget.setItem(4, 5, __qtablewidgetitem40)
         __qtablewidgetitem41 = QTableWidgetItem()
-        __qtablewidgetitem41.setIcon(icon10);
+        __qtablewidgetitem41.setIcon(icon12);
         self.tableWidget.setItem(4, 6, __qtablewidgetitem41)
         __qtablewidgetitem42 = QTableWidgetItem()
         self.tableWidget.setItem(5, 0, __qtablewidgetitem42)
@@ -512,10 +559,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem46 = QTableWidgetItem()
         self.tableWidget.setItem(5, 4, __qtablewidgetitem46)
         __qtablewidgetitem47 = QTableWidgetItem()
-        __qtablewidgetitem47.setIcon(icon11);
+        __qtablewidgetitem47.setIcon(icon13);
         self.tableWidget.setItem(5, 5, __qtablewidgetitem47)
         __qtablewidgetitem48 = QTableWidgetItem()
-        __qtablewidgetitem48.setIcon(icon10);
+        __qtablewidgetitem48.setIcon(icon12);
         self.tableWidget.setItem(5, 6, __qtablewidgetitem48)
         __qtablewidgetitem49 = QTableWidgetItem()
         self.tableWidget.setItem(6, 0, __qtablewidgetitem49)
@@ -528,10 +575,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem53 = QTableWidgetItem()
         self.tableWidget.setItem(6, 4, __qtablewidgetitem53)
         __qtablewidgetitem54 = QTableWidgetItem()
-        __qtablewidgetitem54.setIcon(icon11);
+        __qtablewidgetitem54.setIcon(icon13);
         self.tableWidget.setItem(6, 5, __qtablewidgetitem54)
         __qtablewidgetitem55 = QTableWidgetItem()
-        __qtablewidgetitem55.setIcon(icon10);
+        __qtablewidgetitem55.setIcon(icon12);
         self.tableWidget.setItem(6, 6, __qtablewidgetitem55)
         __qtablewidgetitem56 = QTableWidgetItem()
         self.tableWidget.setItem(7, 0, __qtablewidgetitem56)
@@ -544,10 +591,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem60 = QTableWidgetItem()
         self.tableWidget.setItem(7, 4, __qtablewidgetitem60)
         __qtablewidgetitem61 = QTableWidgetItem()
-        __qtablewidgetitem61.setIcon(icon11);
+        __qtablewidgetitem61.setIcon(icon13);
         self.tableWidget.setItem(7, 5, __qtablewidgetitem61)
         __qtablewidgetitem62 = QTableWidgetItem()
-        __qtablewidgetitem62.setIcon(icon10);
+        __qtablewidgetitem62.setIcon(icon12);
         self.tableWidget.setItem(7, 6, __qtablewidgetitem62)
         __qtablewidgetitem63 = QTableWidgetItem()
         self.tableWidget.setItem(8, 0, __qtablewidgetitem63)
@@ -560,10 +607,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem67 = QTableWidgetItem()
         self.tableWidget.setItem(8, 4, __qtablewidgetitem67)
         __qtablewidgetitem68 = QTableWidgetItem()
-        __qtablewidgetitem68.setIcon(icon11);
+        __qtablewidgetitem68.setIcon(icon13);
         self.tableWidget.setItem(8, 5, __qtablewidgetitem68)
         __qtablewidgetitem69 = QTableWidgetItem()
-        __qtablewidgetitem69.setIcon(icon10);
+        __qtablewidgetitem69.setIcon(icon12);
         self.tableWidget.setItem(8, 6, __qtablewidgetitem69)
         __qtablewidgetitem70 = QTableWidgetItem()
         self.tableWidget.setItem(9, 0, __qtablewidgetitem70)
@@ -576,10 +623,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem74 = QTableWidgetItem()
         self.tableWidget.setItem(9, 4, __qtablewidgetitem74)
         __qtablewidgetitem75 = QTableWidgetItem()
-        __qtablewidgetitem75.setIcon(icon11);
+        __qtablewidgetitem75.setIcon(icon13);
         self.tableWidget.setItem(9, 5, __qtablewidgetitem75)
         __qtablewidgetitem76 = QTableWidgetItem()
-        __qtablewidgetitem76.setIcon(icon10);
+        __qtablewidgetitem76.setIcon(icon12);
         self.tableWidget.setItem(9, 6, __qtablewidgetitem76)
         __qtablewidgetitem77 = QTableWidgetItem()
         self.tableWidget.setItem(10, 0, __qtablewidgetitem77)
@@ -592,10 +639,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem81 = QTableWidgetItem()
         self.tableWidget.setItem(10, 4, __qtablewidgetitem81)
         __qtablewidgetitem82 = QTableWidgetItem()
-        __qtablewidgetitem82.setIcon(icon11);
+        __qtablewidgetitem82.setIcon(icon13);
         self.tableWidget.setItem(10, 5, __qtablewidgetitem82)
         __qtablewidgetitem83 = QTableWidgetItem()
-        __qtablewidgetitem83.setIcon(icon10);
+        __qtablewidgetitem83.setIcon(icon12);
         self.tableWidget.setItem(10, 6, __qtablewidgetitem83)
         __qtablewidgetitem84 = QTableWidgetItem()
         self.tableWidget.setItem(11, 0, __qtablewidgetitem84)
@@ -608,10 +655,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem88 = QTableWidgetItem()
         self.tableWidget.setItem(11, 4, __qtablewidgetitem88)
         __qtablewidgetitem89 = QTableWidgetItem()
-        __qtablewidgetitem89.setIcon(icon11);
+        __qtablewidgetitem89.setIcon(icon13);
         self.tableWidget.setItem(11, 5, __qtablewidgetitem89)
         __qtablewidgetitem90 = QTableWidgetItem()
-        __qtablewidgetitem90.setIcon(icon10);
+        __qtablewidgetitem90.setIcon(icon12);
         self.tableWidget.setItem(11, 6, __qtablewidgetitem90)
         __qtablewidgetitem91 = QTableWidgetItem()
         self.tableWidget.setItem(12, 0, __qtablewidgetitem91)
@@ -624,10 +671,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem95 = QTableWidgetItem()
         self.tableWidget.setItem(12, 4, __qtablewidgetitem95)
         __qtablewidgetitem96 = QTableWidgetItem()
-        __qtablewidgetitem96.setIcon(icon11);
+        __qtablewidgetitem96.setIcon(icon13);
         self.tableWidget.setItem(12, 5, __qtablewidgetitem96)
         __qtablewidgetitem97 = QTableWidgetItem()
-        __qtablewidgetitem97.setIcon(icon10);
+        __qtablewidgetitem97.setIcon(icon12);
         self.tableWidget.setItem(12, 6, __qtablewidgetitem97)
         __qtablewidgetitem98 = QTableWidgetItem()
         self.tableWidget.setItem(13, 0, __qtablewidgetitem98)
@@ -640,10 +687,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem102 = QTableWidgetItem()
         self.tableWidget.setItem(13, 4, __qtablewidgetitem102)
         __qtablewidgetitem103 = QTableWidgetItem()
-        __qtablewidgetitem103.setIcon(icon11);
+        __qtablewidgetitem103.setIcon(icon13);
         self.tableWidget.setItem(13, 5, __qtablewidgetitem103)
         __qtablewidgetitem104 = QTableWidgetItem()
-        __qtablewidgetitem104.setIcon(icon10);
+        __qtablewidgetitem104.setIcon(icon12);
         self.tableWidget.setItem(13, 6, __qtablewidgetitem104)
         __qtablewidgetitem105 = QTableWidgetItem()
         self.tableWidget.setItem(14, 0, __qtablewidgetitem105)
@@ -656,10 +703,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem109 = QTableWidgetItem()
         self.tableWidget.setItem(14, 4, __qtablewidgetitem109)
         __qtablewidgetitem110 = QTableWidgetItem()
-        __qtablewidgetitem110.setIcon(icon11);
+        __qtablewidgetitem110.setIcon(icon13);
         self.tableWidget.setItem(14, 5, __qtablewidgetitem110)
         __qtablewidgetitem111 = QTableWidgetItem()
-        __qtablewidgetitem111.setIcon(icon10);
+        __qtablewidgetitem111.setIcon(icon12);
         self.tableWidget.setItem(14, 6, __qtablewidgetitem111)
         __qtablewidgetitem112 = QTableWidgetItem()
         self.tableWidget.setItem(15, 0, __qtablewidgetitem112)
@@ -672,10 +719,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem116 = QTableWidgetItem()
         self.tableWidget.setItem(15, 4, __qtablewidgetitem116)
         __qtablewidgetitem117 = QTableWidgetItem()
-        __qtablewidgetitem117.setIcon(icon11);
+        __qtablewidgetitem117.setIcon(icon13);
         self.tableWidget.setItem(15, 5, __qtablewidgetitem117)
         __qtablewidgetitem118 = QTableWidgetItem()
-        __qtablewidgetitem118.setIcon(icon10);
+        __qtablewidgetitem118.setIcon(icon12);
         self.tableWidget.setItem(15, 6, __qtablewidgetitem118)
         __qtablewidgetitem119 = QTableWidgetItem()
         self.tableWidget.setItem(16, 0, __qtablewidgetitem119)
@@ -688,10 +735,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem123 = QTableWidgetItem()
         self.tableWidget.setItem(16, 4, __qtablewidgetitem123)
         __qtablewidgetitem124 = QTableWidgetItem()
-        __qtablewidgetitem124.setIcon(icon11);
+        __qtablewidgetitem124.setIcon(icon13);
         self.tableWidget.setItem(16, 5, __qtablewidgetitem124)
         __qtablewidgetitem125 = QTableWidgetItem()
-        __qtablewidgetitem125.setIcon(icon10);
+        __qtablewidgetitem125.setIcon(icon12);
         self.tableWidget.setItem(16, 6, __qtablewidgetitem125)
         __qtablewidgetitem126 = QTableWidgetItem()
         self.tableWidget.setItem(17, 0, __qtablewidgetitem126)
@@ -704,10 +751,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem130 = QTableWidgetItem()
         self.tableWidget.setItem(17, 4, __qtablewidgetitem130)
         __qtablewidgetitem131 = QTableWidgetItem()
-        __qtablewidgetitem131.setIcon(icon11);
+        __qtablewidgetitem131.setIcon(icon13);
         self.tableWidget.setItem(17, 5, __qtablewidgetitem131)
         __qtablewidgetitem132 = QTableWidgetItem()
-        __qtablewidgetitem132.setIcon(icon10);
+        __qtablewidgetitem132.setIcon(icon12);
         self.tableWidget.setItem(17, 6, __qtablewidgetitem132)
         __qtablewidgetitem133 = QTableWidgetItem()
         self.tableWidget.setItem(18, 0, __qtablewidgetitem133)
@@ -720,10 +767,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem137 = QTableWidgetItem()
         self.tableWidget.setItem(18, 4, __qtablewidgetitem137)
         __qtablewidgetitem138 = QTableWidgetItem()
-        __qtablewidgetitem138.setIcon(icon11);
+        __qtablewidgetitem138.setIcon(icon13);
         self.tableWidget.setItem(18, 5, __qtablewidgetitem138)
         __qtablewidgetitem139 = QTableWidgetItem()
-        __qtablewidgetitem139.setIcon(icon10);
+        __qtablewidgetitem139.setIcon(icon12);
         self.tableWidget.setItem(18, 6, __qtablewidgetitem139)
         __qtablewidgetitem140 = QTableWidgetItem()
         self.tableWidget.setItem(19, 0, __qtablewidgetitem140)
@@ -736,10 +783,10 @@ class Ui_MainWindow(object):
         __qtablewidgetitem144 = QTableWidgetItem()
         self.tableWidget.setItem(19, 4, __qtablewidgetitem144)
         __qtablewidgetitem145 = QTableWidgetItem()
-        __qtablewidgetitem145.setIcon(icon11);
+        __qtablewidgetitem145.setIcon(icon13);
         self.tableWidget.setItem(19, 5, __qtablewidgetitem145)
         __qtablewidgetitem146 = QTableWidgetItem()
-        __qtablewidgetitem146.setIcon(icon10);
+        __qtablewidgetitem146.setIcon(icon12);
         self.tableWidget.setItem(19, 6, __qtablewidgetitem146)
         self.tableWidget.setObjectName(u"tableWidget")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
@@ -1225,7 +1272,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem215 = QTableWidgetItem()
         self.tableWidget_3.setItem(0, 5, __qtablewidgetitem215)
         __qtablewidgetitem216 = QTableWidgetItem()
-        __qtablewidgetitem216.setIcon(icon11);
+        __qtablewidgetitem216.setIcon(icon13);
         self.tableWidget_3.setItem(0, 6, __qtablewidgetitem216)
         __qtablewidgetitem217 = QTableWidgetItem()
         self.tableWidget_3.setItem(1, 0, __qtablewidgetitem217)
@@ -1240,7 +1287,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem222 = QTableWidgetItem()
         self.tableWidget_3.setItem(1, 5, __qtablewidgetitem222)
         __qtablewidgetitem223 = QTableWidgetItem()
-        __qtablewidgetitem223.setIcon(icon11);
+        __qtablewidgetitem223.setIcon(icon13);
         self.tableWidget_3.setItem(1, 6, __qtablewidgetitem223)
         __qtablewidgetitem224 = QTableWidgetItem()
         self.tableWidget_3.setItem(2, 0, __qtablewidgetitem224)
@@ -1255,7 +1302,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem229 = QTableWidgetItem()
         self.tableWidget_3.setItem(2, 5, __qtablewidgetitem229)
         __qtablewidgetitem230 = QTableWidgetItem()
-        __qtablewidgetitem230.setIcon(icon11);
+        __qtablewidgetitem230.setIcon(icon13);
         self.tableWidget_3.setItem(2, 6, __qtablewidgetitem230)
         __qtablewidgetitem231 = QTableWidgetItem()
         self.tableWidget_3.setItem(3, 0, __qtablewidgetitem231)
@@ -1270,7 +1317,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem236 = QTableWidgetItem()
         self.tableWidget_3.setItem(3, 5, __qtablewidgetitem236)
         __qtablewidgetitem237 = QTableWidgetItem()
-        __qtablewidgetitem237.setIcon(icon11);
+        __qtablewidgetitem237.setIcon(icon13);
         self.tableWidget_3.setItem(3, 6, __qtablewidgetitem237)
         __qtablewidgetitem238 = QTableWidgetItem()
         self.tableWidget_3.setItem(4, 0, __qtablewidgetitem238)
@@ -1285,7 +1332,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem243 = QTableWidgetItem()
         self.tableWidget_3.setItem(4, 5, __qtablewidgetitem243)
         __qtablewidgetitem244 = QTableWidgetItem()
-        __qtablewidgetitem244.setIcon(icon11);
+        __qtablewidgetitem244.setIcon(icon13);
         self.tableWidget_3.setItem(4, 6, __qtablewidgetitem244)
         __qtablewidgetitem245 = QTableWidgetItem()
         self.tableWidget_3.setItem(5, 0, __qtablewidgetitem245)
@@ -1300,7 +1347,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem250 = QTableWidgetItem()
         self.tableWidget_3.setItem(5, 5, __qtablewidgetitem250)
         __qtablewidgetitem251 = QTableWidgetItem()
-        __qtablewidgetitem251.setIcon(icon11);
+        __qtablewidgetitem251.setIcon(icon13);
         self.tableWidget_3.setItem(5, 6, __qtablewidgetitem251)
         __qtablewidgetitem252 = QTableWidgetItem()
         self.tableWidget_3.setItem(6, 0, __qtablewidgetitem252)
@@ -1315,7 +1362,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem257 = QTableWidgetItem()
         self.tableWidget_3.setItem(6, 5, __qtablewidgetitem257)
         __qtablewidgetitem258 = QTableWidgetItem()
-        __qtablewidgetitem258.setIcon(icon11);
+        __qtablewidgetitem258.setIcon(icon13);
         self.tableWidget_3.setItem(6, 6, __qtablewidgetitem258)
         __qtablewidgetitem259 = QTableWidgetItem()
         self.tableWidget_3.setItem(7, 0, __qtablewidgetitem259)
@@ -1330,7 +1377,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem264 = QTableWidgetItem()
         self.tableWidget_3.setItem(7, 5, __qtablewidgetitem264)
         __qtablewidgetitem265 = QTableWidgetItem()
-        __qtablewidgetitem265.setIcon(icon11);
+        __qtablewidgetitem265.setIcon(icon13);
         self.tableWidget_3.setItem(7, 6, __qtablewidgetitem265)
         __qtablewidgetitem266 = QTableWidgetItem()
         self.tableWidget_3.setItem(8, 0, __qtablewidgetitem266)
@@ -1345,7 +1392,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem271 = QTableWidgetItem()
         self.tableWidget_3.setItem(8, 5, __qtablewidgetitem271)
         __qtablewidgetitem272 = QTableWidgetItem()
-        __qtablewidgetitem272.setIcon(icon11);
+        __qtablewidgetitem272.setIcon(icon13);
         self.tableWidget_3.setItem(8, 6, __qtablewidgetitem272)
         __qtablewidgetitem273 = QTableWidgetItem()
         self.tableWidget_3.setItem(9, 0, __qtablewidgetitem273)
@@ -1360,7 +1407,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem278 = QTableWidgetItem()
         self.tableWidget_3.setItem(9, 5, __qtablewidgetitem278)
         __qtablewidgetitem279 = QTableWidgetItem()
-        __qtablewidgetitem279.setIcon(icon11);
+        __qtablewidgetitem279.setIcon(icon13);
         self.tableWidget_3.setItem(9, 6, __qtablewidgetitem279)
         __qtablewidgetitem280 = QTableWidgetItem()
         self.tableWidget_3.setItem(10, 0, __qtablewidgetitem280)
@@ -1375,7 +1422,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem285 = QTableWidgetItem()
         self.tableWidget_3.setItem(10, 5, __qtablewidgetitem285)
         __qtablewidgetitem286 = QTableWidgetItem()
-        __qtablewidgetitem286.setIcon(icon11);
+        __qtablewidgetitem286.setIcon(icon13);
         self.tableWidget_3.setItem(10, 6, __qtablewidgetitem286)
         __qtablewidgetitem287 = QTableWidgetItem()
         self.tableWidget_3.setItem(11, 0, __qtablewidgetitem287)
@@ -1390,7 +1437,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem292 = QTableWidgetItem()
         self.tableWidget_3.setItem(11, 5, __qtablewidgetitem292)
         __qtablewidgetitem293 = QTableWidgetItem()
-        __qtablewidgetitem293.setIcon(icon11);
+        __qtablewidgetitem293.setIcon(icon13);
         self.tableWidget_3.setItem(11, 6, __qtablewidgetitem293)
         __qtablewidgetitem294 = QTableWidgetItem()
         self.tableWidget_3.setItem(12, 0, __qtablewidgetitem294)
@@ -1405,7 +1452,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem299 = QTableWidgetItem()
         self.tableWidget_3.setItem(12, 5, __qtablewidgetitem299)
         __qtablewidgetitem300 = QTableWidgetItem()
-        __qtablewidgetitem300.setIcon(icon11);
+        __qtablewidgetitem300.setIcon(icon13);
         self.tableWidget_3.setItem(12, 6, __qtablewidgetitem300)
         self.tableWidget_3.setObjectName(u"tableWidget_3")
         self.tableWidget_3.setSizeIncrement(QSize(0, 0))
@@ -1906,7 +1953,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 864, 657))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 605, 657))
         self.gridLayout_34 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_34.setObjectName(u"gridLayout_34")
         self.horizontal1_7 = QHBoxLayout()
@@ -2922,8 +2969,8 @@ class Ui_MainWindow(object):
 "padding:5px;\n"
 "box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);\n"
 "")
-        icon12 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AddressBookNew))
-        self.boton_actualizacion.setIcon(icon12)
+        icon14 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.AddressBookNew))
+        self.boton_actualizacion.setIcon(icon14)
 
         self.horizontalLayout_8.addWidget(self.boton_actualizacion)
 
@@ -3198,8 +3245,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_101.setObjectName(u"verticalLayout_101")
         self.pushButton_29 = QPushButton(self.frame_72)
         self.pushButton_29.setObjectName(u"pushButton_29")
-        icon13 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.EditDelete))
-        self.pushButton_29.setIcon(icon13)
+        icon15 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.EditDelete))
+        self.pushButton_29.setIcon(icon15)
 
         self.verticalLayout_101.addWidget(self.pushButton_29)
 
@@ -3265,7 +3312,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_97.setObjectName(u"verticalLayout_97")
         self.pushButton_28 = QPushButton(self.frame_69)
         self.pushButton_28.setObjectName(u"pushButton_28")
-        self.pushButton_28.setIcon(icon13)
+        self.pushButton_28.setIcon(icon15)
 
         self.verticalLayout_97.addWidget(self.pushButton_28)
 
@@ -3331,7 +3378,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_93.setObjectName(u"verticalLayout_93")
         self.pushButton_27 = QPushButton(self.frame_66)
         self.pushButton_27.setObjectName(u"pushButton_27")
-        self.pushButton_27.setIcon(icon13)
+        self.pushButton_27.setIcon(icon15)
 
         self.verticalLayout_93.addWidget(self.pushButton_27)
 
@@ -3397,7 +3444,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_55.setObjectName(u"verticalLayout_55")
         self.pushButton_18 = QPushButton(self.frame_31)
         self.pushButton_18.setObjectName(u"pushButton_18")
-        self.pushButton_18.setIcon(icon13)
+        self.pushButton_18.setIcon(icon15)
 
         self.verticalLayout_55.addWidget(self.pushButton_18)
 
@@ -3463,7 +3510,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_51.setObjectName(u"verticalLayout_51")
         self.pushButton_17 = QPushButton(self.frame_28)
         self.pushButton_17.setObjectName(u"pushButton_17")
-        self.pushButton_17.setIcon(icon13)
+        self.pushButton_17.setIcon(icon15)
 
         self.verticalLayout_51.addWidget(self.pushButton_17)
 
@@ -3529,7 +3576,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
         self.pushButton_16 = QPushButton(self.frame_25)
         self.pushButton_16.setObjectName(u"pushButton_16")
-        self.pushButton_16.setIcon(icon13)
+        self.pushButton_16.setIcon(icon15)
 
         self.verticalLayout_44.addWidget(self.pushButton_16)
 
@@ -3598,7 +3645,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_85.setObjectName(u"verticalLayout_85")
         self.pushButton_25 = QPushButton(self.frame_60)
         self.pushButton_25.setObjectName(u"pushButton_25")
-        self.pushButton_25.setIcon(icon13)
+        self.pushButton_25.setIcon(icon15)
 
         self.verticalLayout_85.addWidget(self.pushButton_25)
 
@@ -3681,7 +3728,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_113.setObjectName(u"verticalLayout_113")
         self.pushButton_32 = QPushButton(self.frame_119)
         self.pushButton_32.setObjectName(u"pushButton_32")
-        self.pushButton_32.setIcon(icon13)
+        self.pushButton_32.setIcon(icon15)
 
         self.verticalLayout_113.addWidget(self.pushButton_32)
 
@@ -3747,7 +3794,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_109.setObjectName(u"verticalLayout_109")
         self.pushButton_31 = QPushButton(self.frame_78)
         self.pushButton_31.setObjectName(u"pushButton_31")
-        self.pushButton_31.setIcon(icon13)
+        self.pushButton_31.setIcon(icon15)
 
         self.verticalLayout_109.addWidget(self.pushButton_31)
 
@@ -3813,7 +3860,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_105.setObjectName(u"verticalLayout_105")
         self.pushButton_30 = QPushButton(self.frame_75)
         self.pushButton_30.setObjectName(u"pushButton_30")
-        self.pushButton_30.setIcon(icon13)
+        self.pushButton_30.setIcon(icon15)
 
         self.verticalLayout_105.addWidget(self.pushButton_30)
 
@@ -3879,7 +3926,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_60.setObjectName(u"verticalLayout_60")
         self.pushButton_19 = QPushButton(self.frame_34)
         self.pushButton_19.setObjectName(u"pushButton_19")
-        self.pushButton_19.setIcon(icon13)
+        self.pushButton_19.setIcon(icon15)
 
         self.verticalLayout_60.addWidget(self.pushButton_19)
 
@@ -3945,7 +3992,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_64.setObjectName(u"verticalLayout_64")
         self.pushButton_20 = QPushButton(self.frame_37)
         self.pushButton_20.setObjectName(u"pushButton_20")
-        self.pushButton_20.setIcon(icon13)
+        self.pushButton_20.setIcon(icon15)
 
         self.verticalLayout_64.addWidget(self.pushButton_20)
 
@@ -4011,7 +4058,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_68.setObjectName(u"verticalLayout_68")
         self.pushButton_21 = QPushButton(self.frame_41)
         self.pushButton_21.setObjectName(u"pushButton_21")
-        self.pushButton_21.setIcon(icon13)
+        self.pushButton_21.setIcon(icon15)
 
         self.verticalLayout_68.addWidget(self.pushButton_21)
 
@@ -4080,7 +4127,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_89.setObjectName(u"verticalLayout_89")
         self.pushButton_26 = QPushButton(self.frame_63)
         self.pushButton_26.setObjectName(u"pushButton_26")
-        self.pushButton_26.setIcon(icon13)
+        self.pushButton_26.setIcon(icon15)
 
         self.verticalLayout_89.addWidget(self.pushButton_26)
 
@@ -4186,7 +4233,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(9)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4215,6 +4262,9 @@ class Ui_MainWindow(object):
         self.user_label.setText(QCoreApplication.translate("MainWindow", u"Usuario:", None))
         self.entry_button.setText(QCoreApplication.translate("MainWindow", u"Identificar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.login), QCoreApplication.translate("MainWindow", u"Login", None))
+        self.descargar_documentacion.setText(QCoreApplication.translate("MainWindow", u"Instrucciones de ingreso datos", None))
+        self.boton_subir_archivo.setText(QCoreApplication.translate("MainWindow", u"Subir Archivo (.csv - .txt)", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.enter_data), QCoreApplication.translate("MainWindow", u"Enter_Data", None))
         self.pushButton_11.setText(QCoreApplication.translate("MainWindow", u"Ingresos", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Hoy:", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"22.000\u20ac", None))

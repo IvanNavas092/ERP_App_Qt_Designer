@@ -339,7 +339,7 @@ border-radius: 13px;</string>
               </font>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>9</number>
              </property>
              <widget class="QWidget" name="login">
               <attribute name="title">
@@ -456,6 +456,92 @@ border-radius: 13px;</string>
                     </property>
                     <property name="text">
                      <string>Identificar</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="enter_data">
+              <attribute name="title">
+               <string>Enter_Data</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_71">
+               <item row="0" column="0">
+                <widget class="QFrame" name="frame_20">
+                 <property name="maximumSize">
+                  <size>
+                   <width>399</width>
+                   <height>300</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Shape::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Shadow::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_17">
+                  <item>
+                   <widget class="QPushButton" name="descargar_documentacion">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: #d9d9d9;
+color: black;
+border: 1px solid black;
+border-radius: 15px;
+padding:5px;
+box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Instrucciones de ingreso datos</string>
+                    </property>
+                    <property name="icon">
+                     <iconset theme="QIcon::ThemeIcon::Printer"/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="boton_subir_archivo">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: #d9d9d9;
+color: black;
+border: 1px solid black;
+border-radius: 15px;
+padding:5px;
+box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Subir Archivo (.csv - .txt)</string>
+                    </property>
+                    <property name="icon">
+                     <iconset theme="QIcon::ThemeIcon::DocumentOpen"/>
                     </property>
                    </widget>
                   </item>
@@ -3889,7 +3975,7 @@ box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
                           <rect>
                            <x>0</x>
                            <y>0</y>
-                           <width>864</width>
+                           <width>605</width>
                            <height>657</height>
                           </rect>
                          </property>

@@ -3,21 +3,26 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QFrame, QVBoxLayout, QD
 from PySide6.QtCharts import QChart, QChartView, QLineSeries, QCategoryAxis, QValueAxis, QBarSet, QBarSeries, QBarCategoryAxis, QPieSeries
 from PySide6.QtGui import QPainter
 from interfaz import Ui_MainWindow  
-from window_suministro import Ui_Window
-from window_informe import Ui_Dialog
-from window_filtrar import Ui_Dialog_F
-from window_recordatorio import Ui_main
-from window_proyecto import Ui_Dialog_P
-from window_auto import Ui_Dialog_A
+
+from windows.suministro.window_suministro import Ui_Window
+from windows.informe.window_informe import Ui_Dialog
+from windows.filtrar.window_filtrar import Ui_Dialog_F
+from windows.recordatorio.window_recordatorio import Ui_main
+from windows.proyecto.window_proyecto import Ui_Dialog_P
+from windows.automatizacion.window_auto import Ui_Dialog_A
 from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QFileDialog
+import shutil
 import os
+import pandas as pd
+
+
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
-
         # Crear frame para el gráfico en Inventory
         self.graphic = QFrame(self.Inventory)
         self.graphic.setObjectName(u"graphic")
@@ -27,10 +32,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.graphic.setLayout(layout_inventory)
         self.GRID.addWidget(self.graphic, 1, 1, 1, 1)  # Añadir frame al GRID layout
 
-        # Agregar gráfico en Inventory
+        # Agregar gráficos genéricos, pero sin datos ficticios
         self.agregar_grafico_generico(
-            datos=[10000, 12000, 9000, 15000, 11000, 13000, 14000, 16000, 18000, 17000, 16000, 22000],
-            titulo="Balance de Dinero - 2024",
+            datos=[],  # Vacío por ahora, se actualizará después
+            titulo="Balance de Dinero Mensual - 2024",
             eje_y_rango=(10000, 22000),
             frame=self.graphic
         )
@@ -38,8 +43,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Agregar gráfico lineal en Buys
         frame_lineal = self.Buys.findChild(QFrame, "frame_lineal")
         self.agregar_grafico_generico(
-            datos=[2000, 4000, 2000, 1500, 2100, 2300, 2400, 1600, 3800, 4700, 5600, 5080],
-            titulo="Gastos de Dinero - 2024",
+            datos=[],  # Vacío por ahora, se actualizará después
+            titulo="Gastos de Dinero",
             eje_y_rango=(0, 6000),
             frame=frame_lineal
         )
@@ -47,7 +52,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Agregar gráfico de barras en Finance
         frame_balance = self.finance.findChild(QFrame, "frame_balance")
         self.agregar_grafico_barras(
-            datos=[5000, 7000, 6000, 4000, 8000, 5500, 6500, 7000, 7500, 6000, 7200, 6800],
+            datos=[],  # Vacío por ahora, se actualizará después
             titulo="Balance Financiero - 2024",
             eje_y_rango=(0, 10000),
             frame=frame_balance
@@ -56,14 +61,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Agregar gráficos en Marketing Electrónico
         frame_grafico_1 = self.marketing.findChild(QFrame, "frame_grafico_1")
         self.agregar_grafico_pie(
-            datos={"Campañas Activas": 45, "Campañas Pausadas": 20, "Campañas Finalizadas": 35},
+            datos={},  # Vacío por ahora, se actualizará después
             titulo="Estado de Campañas",
             frame=frame_grafico_1
         )
 
         frame_grafico_2 = self.marketing.findChild(QFrame, "frame_grafico_2")
         self.agregar_grafico_barras(
-            datos=[500, 700, 900, 600, 800, 1100],
+            datos=[],  # Vacío por ahora, se actualizará después
             titulo="Dinero ganado con automatizaciones Mensuales",
             eje_y_rango=(0, 1200),
             frame=frame_grafico_2
@@ -85,26 +90,33 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.crear_proyecto.clicked.connect(self.abrir_ventana_proyecto)
         self.crear_auto.clicked.connect(self.abrir_ventana_auto)
         self.boton_actualizacion.clicked.connect(self.mostrar_mensaje_actualizacion)
+        # Logica
+        self.descargar_documentacion.clicked.connect(self.guardar_documentacion)
+        self.boton_subir_archivo.clicked.connect(self.subir_archivo)
+        
 
     def abrir_ventana_filtrar(self):
         self.ventana_filtrar = QDialog()
         self.ui_filtrar = Ui_Dialog_F()  
         self.ui_filtrar.setupUi(self.ventana_filtrar)  
         self.ventana_filtrar.exec()
+
     def abrir_ventana_auto(self):
         self.ventana_auto = QDialog()
         self.ui_auto = Ui_Dialog_A()  
         self.ui_auto.setupUi(self.ventana_auto)  
         self.ventana_auto.exec()
+
     def abrir_ventana_proyecto(self):
         self.ventana_proyecto = QDialog()
         self.ui_proyecto = Ui_Dialog_P()  
         self.ui_proyecto.setupUi(self.ventana_proyecto)  
         self.ventana_proyecto.exec()
+
     def abrir_ventana_suministro(self):
-        self.ventana_suministro = QDialog()
-        self.ui_suministro = Ui_Window()
-        self.ui_suministro.setupUi(self.ventana_suministro)
+        self.ventana_suministro = QDialog() 
+        self.ui_suministro = Ui_Window()  
+        self.ui_suministro.setupUi(self.ventana_suministro)  
         self.ventana_suministro.exec()
 
     def abrir_ventana_informe(self):
@@ -221,6 +233,134 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         mensaje.setStandardButtons(QMessageBox.Ok)
         mensaje.exec()
 
+    def guardar_documentacion(self):
+        # Nombre del archivo PDF original
+        ruta_original_pdf = "Instrucciones_para_ingresar_archivos.pdf"  # Cambia esta ruta según corresponda
+        
+        # Extraer solo el nombre del archivo sin la ruta
+        nombre_pdf = os.path.basename(ruta_original_pdf)
+        
+        # Abrir un cuadro de diálogo para guardar el archivo PDF, con el nombre por defecto del archivo original
+        ruta, _ = QFileDialog.getSaveFileName(self, "Guardar Documentación", nombre_pdf, "Archivos PDF (*.pdf)")
+        
+        if ruta:
+            if not ruta.endswith('.pdf'):
+                ruta += '.pdf'  # Asegurarse de que termine con .pdf
+
+            try:
+                # Copiar el archivo PDF a la ruta seleccionada
+                shutil.copy(ruta_original_pdf, ruta)
+                
+                QMessageBox.information(self, "Éxito", f"Documentación guardada en: {ruta}")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"No se pudo guardar el archivo:\n{str(e)}")
+
+    def subir_archivo(self):
+        # Abrir cuadro de diálogo para seleccionar archivo CSV o TXT
+        ruta, _ = QFileDialog.getOpenFileName(
+            self, "Seleccionar Archivo", "", "Archivos CSV (*.csv);;Archivos de Texto (*.txt)"
+        )
+        if ruta:
+            try:
+                # Si es CSV, cargarlo con pandas
+                if ruta.endswith('.csv'):
+                    datos = pd.read_csv(ruta)
+
+                    # Procesar los datos del CSV
+                    self.procesar_datos_csv(datos)
+
+                    QMessageBox.information(self, "Archivo Cargado", f"Archivo CSV cargado: {ruta}")
+
+                # Si es TXT, leer el archivo como texto
+                elif ruta.endswith('.txt'):
+                    with open(ruta, 'r') as archivo:
+                        contenido = archivo.read()
+                        QMessageBox.information(self, "Archivo Cargado", f"Archivo TXT cargado:\n{contenido[:100]}...")  # Muestra los primeros 100 caracteres
+
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"No se pudo cargar el archivo:\n{str(e)}")
+
+
+    def procesar_datos_csv(self, datos_csv):
+        """Procesa los datos del CSV y genera los gráficos."""
+        try:
+            # Limpiar los nombres de las columnas eliminando espacios extra
+            datos_csv.columns = datos_csv.columns.str.strip()
+            
+            # Verificar las cabeceras del CSV
+            print("Cabeceras del archivo CSV:", datos_csv.columns)
+
+            # Imprimir las primeras filas de datos para verificar
+            print("Primeras filas de datos:")
+            print(datos_csv.head())
+
+            # Verificar que todas las columnas esperadas están presentes
+            if "Balance de Dinero Mensual" not in datos_csv.columns:
+                raise ValueError("La columna 'Balance de Dinero Mensual' no se encuentra en el CSV.")
+            if "Gastos de Dinero" not in datos_csv.columns:
+                raise ValueError("La columna 'Gastos de Dinero' no se encuentra en el CSV.")
+            if "Balance Financiero" not in datos_csv.columns:
+                raise ValueError("La columna 'Balance Financiero' no se encuentra en el CSV.")
+            if "Balance de Campañas" not in datos_csv.columns:
+                raise ValueError("La columna 'Balance de Campañas' no se encuentra en el CSV.")
+            if "Dinero Ganado con Automatizaciones" not in datos_csv.columns:
+                raise ValueError("La columna 'Dinero Ganado con Automatizaciones' no se encuentra en el CSV.")
+
+            # Obtener los datos de cada columna
+            balance_mensual = datos_csv['Balance de Dinero Mensual'].tolist()
+            gastos = datos_csv['Gastos de Dinero'].tolist()
+            balance_financiero = datos_csv['Balance Financiero'].tolist()
+            balance_campanas = datos_csv['Balance de Campañas'].tolist()
+            dinero_automatizaciones = datos_csv['Dinero Ganado con Automatizaciones'].tolist()
+
+            # Verifica que las listas no estén vacías
+            if not balance_mensual or not gastos or not balance_financiero or not balance_campanas or not dinero_automatizaciones:
+                raise ValueError("Los datos del CSV no pueden estar vacíos.")
+
+            # Generar gráficos con los datos procesados
+            self.agregar_grafico_generico(
+                datos=balance_mensual,
+                titulo="Balance de Dinero Mensual",
+                eje_y_rango=(min(balance_mensual), max(balance_mensual)),
+                frame=self.graphic
+            )
+
+            frame_lineal = self.Buys.findChild(QFrame, "frame_lineal")
+            self.agregar_grafico_generico(
+                datos=gastos,
+                titulo="Gastos de Dinero",
+                eje_y_rango=(0, max(gastos) + 500),
+                frame=frame_lineal
+            )
+
+            frame_balance = self.finance.findChild(QFrame, "frame_balance")
+            self.agregar_grafico_generico(
+                datos=balance_financiero,
+                titulo="Balance Financiero",
+                eje_y_rango=(0, max(balance_financiero) + 500),
+                frame=frame_balance
+            )
+
+            frame_grafico_1 = self.marketing.findChild(QFrame, "frame_grafico_1")
+            self.agregar_grafico_pie(
+                datos=dict(zip(["Campaña 1", "Campaña 2", "Campaña 3"], balance_campanas)),
+                titulo="Estado de Campañas",
+                frame=frame_grafico_1
+            )
+
+            frame_grafico_2 = self.marketing.findChild(QFrame, "frame_grafico_2")
+            self.agregar_grafico_barras(
+                datos=dinero_automatizaciones,
+                titulo="Dinero Ganado con Automatizaciones",
+                eje_y_rango=(0, max(dinero_automatizaciones) + 500),
+                frame=frame_grafico_2
+            )
+
+        except Exception as e:
+            QMessageBox.critical(self, "Error de procesamiento", f"Hubo un error procesando el archivo CSV:\n{str(e)}")
+
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -228,5 +368,3 @@ if __name__ == "__main__":
     main_window = MainWindow()
     main_window.show()
     sys.exit(app.exec())
-
-    
